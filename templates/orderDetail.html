@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Wines &mdash; Summit's Web App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+
+<body>
+    <br>
+<!-- Wines Co. Logo -->
+    <img src="images/logo.png">
+    <hr>
+    <br>
+
+            <h2 >YOUR ORDER DETAIL</h2>
+            <p>All our products ship the next day after you make a purchase!</p>
+    <table>
+      <tr>
+        <th><h3>Product Name</h3></th>
+        <th><h3>Price</h3></th>
+      </tr>
+
+      {{range .Cart}}
+      <tr>
+        <td><h3><a style="color: blueviolet;">{{.OrderName}}</a></h3></td>
+        <td><h4>${{.OrderPrice}}</h4></td>
+      </tr>
+      {{end}}
+      <br>
+      <br>
+
+      <tr>
+       <td><h4><a style="color:black;">SUBTOTAL:</a></h4></td> 
+       <td><h4><a style="color:brown;">${{.Totals.OrderTot}}</a></h4></td>
+    </tr>
+
+    <tr>
+      <td><h4><a style="color:black">TAX(6.25%):</a></h4></td> 
+      <td><h4><a style="color:brown;">${{.Totals.OrderTax}}</a></h4></td>
+    </tr>
+
+    <tr>
+      <td><h4><a style="color:black;">ORDER TOTAL:</a></h4></td> 
+      <td><h4><a style="color:brown;">${{.Totals.OrderDue}}</a></h4></td>
+    </tr>
+    </table>
+     <br>
+
+    <h3><a style="color:rebeccapurple;">Shipping Address:</a><br> <br>
+    {{.Details.Address1}} {{.Details.Address2}}<br>
+    {{.Details.City}}, {{.Details.State}} - {{.Details.Zip}} <br>
+    {{.Details.Country}} <br> <br>
+    {{.Details.Phone}} <br> <br><br> </h3>
+
+    <h3><a style="color:rebeccapurple;">The total of </a> <a style="color: brown;">${{.Totals.OrderDue}}</a> <a style="color:rebeccapurple;">will be charged on the card:</a><br><br>
+    {{.Details.Card}}<br>
+    Expiry:{{.Details.Expiry}}, CVV:{{.Details.Cvv}}<br>
+    Billing Zip:{{.Details.BillingZip}}<br><br>
+    {{.Details.NameOnCard}} <br><br><br>
+    </h3>
+    <h3><a style="color:rebeccapurple;">Expected Delivary Date:</a><br>
+    Before {{.Date}} <br><br><br>
+
+    <h3><a style="color:green;">Thank You for being a valued customer!</a></h3>
+
+
+    <img src="images/img_4.jpg" style="width:1300px;height:60s0px;">
+    <!-- Footer Section -->
+    <p>Copyright &copy; All rights reserved | Wines Co. Since 1885</p>
+  
+    <a href="index"><button>Order Again</button></a>
+    <a href="logout"><button>Log Out</button></a>
+
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Wines &mdash; Summit's Web App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+
+<body>
+    <br>
+<!-- Wines Co. Logo -->
+    <img src="images/logo.png">
+    <hr>
+    <br>
+    <img src="images/wine_banner.jpg" style="width:1300px;height:330px;"><br>
+    
+    <br>
+    <hr>
+
+    <h2 >YOUR CART</h2> 
+    <p>All our products ship the next day after you make a purchase!</p>
+    <br>
+
+   
+
+
+    <table>
+        <tr>
+          <th></th>
+          <th><h3>Product Name</h3></th>
+          <th><h3>Price</h3></th>
+        </tr>
+        <br>
+        <br>
+
+        {{range .Cart}}
+        <tr>
+          <td> <img src={{.OrderImage}} style="width:200px;height:250px;"></td>
+          <td><h3><a style="color: blueviolet;">{{.OrderName}}</a></h3></td>
+          <td><h4>${{.OrderPrice}}</h4></td>
+        </tr>
+        {{end}}
+
+        <tr>
+          <td></td>
+          <td><h4><a style="color:black;">SUBTOTAL:</a></h4></td> 
+          <td><h4><a style="color:brown;">${{.Totals.OrderTot}}</a></h4></td>
+       </tr>
+   
+       <tr>
+        <td></td>
+         <td><h4><a style="color:black">TAX(6.25%):</a></h4></td> 
+         <td><h4><a style="color:brown;">${{.Totals.OrderTax}}</a></h4></td>
+       </tr>
+   
+       <tr>
+        <td></td>
+         <td><h4><a style="color:black;">ORDER TOTAL:</a></h4></td> 
+         <td><h4><a style="color:brown;">${{.Totals.OrderDue}}</a></h4></td>
+       </tr>
+
+
+
+        <br>
+        <br>
+        <br>
+      </table>
+      <br>
+      <hr>
+
+      <br>
+
+    <h3>Shipping Detail</h3>
+
+    <form method="POST">
+        
+            <input type="text" name="address" id="address" placeholder="Address Line 1"/>   <br>
+            <input type="text" name="address2" id="address2" placeholder="Address Line 2"/>  <br>   
+            <input type="text" name="city" id="city" placeholder="City"/> <br>
+            <input type="text" name="state" id="state" placeholder="State"/> <br>
+            <input type="text" name="zip" id="zip" placeholder="Zip Code" /> <br>
+            <input type="text" name="country" id="country" placeholder="Country"/> <br> <br>
+            <input type="text" name="phone" id="phone" placeholder="Phone Number"/> <br>
+
+    <br>
+
+    <h3>Card Detail</h3>
+        
+        <input type="text" name="cardNumber" id="cardNumber" placeholder="Card Number"/>   <br>
+        <input type="text" name="expiration" id="expiration" placeholder="Expiration Date"/>  <br>   
+        <input type="text" name="cvv" id="cvv" placeholder="3-Digit CVV"/> <br>
+        <input type="text" name="billingZip" id="billingZip" placeholder="Billing Zip Code"/> <br>
+        <input type="text" name="nameOnCard" id="nameOnCard" placeholder="Name on Card" /> <br>
+
+    <br>
+    <br>
+
+    <button type="submit">Confirm Details</button>
+
+    </form>
+    <!-- Footer Section -->
+
+    <img src="images/img_4.jpg" style="width:1300px;height:600px;">
+    <p>Copyright &copy; All rights reserved | Wines Co. Since 1885</p>
+
+    <a href="orderDetail"><button>Confirm Order</button></a>
+    <a href="logout"><button>Log Out</button></a>
+
+</body>
+
+</html>
